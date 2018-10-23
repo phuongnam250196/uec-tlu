@@ -25,7 +25,7 @@ class EditJobFairRequest extends FormRequest
     {
         return [
             'tt_title'=>'unique:uec_jobfair,jobfair_name,'.$this->segment(5).',id',
-            'tt_img'=>'required | mimes:jpeg,jpg,png|max:2000',
+            'tt_img'=>'mimes:jpeg,jpg,png|max:2000',
             'tt_content' => 'required'
         ];
     }
@@ -33,7 +33,6 @@ class EditJobFairRequest extends FormRequest
         return [
             'tt_title.unique'=>'JobFair này đã tồn tại',
             'tt_title.required'=>'Tên JobFair không được để trống',
-            'tt_img.required'=>'Ảnh minh họa không được để trống',
             'tt_img.mines' => 'Ảnh không đúng định dạng, chọn lại',
             'tt_img.max' => 'Kích thước ảnh quá lớn',
             'tt_content.required' => 'Nội dung không được để trống'

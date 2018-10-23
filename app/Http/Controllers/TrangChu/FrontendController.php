@@ -201,7 +201,7 @@ class FrontendController extends Controller
 
     // doanh nghiệp
     public function getDoanhnghiepPub() {
-        $enterprise_pub = EnterprisesModel::join('uec_area', 'uec_area.id', '=', 'uec_enterprises.area_id')->orderBy('uec_enterprises.id', 'desc')->select('uec_enterprises.id', 'enterprise_name', 'uec_enterprises.created_at', 'uec_enterprises.updated_at', 'area_name', 'enterprise_address', 'enterprise_describe')->paginate(5);
+        $enterprise_pub = EnterprisesModel::join('uec_area', 'uec_area.id', '=', 'uec_enterprises.area_id')->orderBy('uec_enterprises.id', 'desc')->select('uec_enterprises.id', 'enterprise_name', 'enterprise_full_name', 'uec_enterprises.created_at', 'uec_enterprises.updated_at', 'area_name', 'enterprise_address', 'enterprise_describe')->paginate(5);
         $count = $enterprise_pub->count();
         $area= AreaModel::all();
         // $a = AreaModel::find(1)->enterprise->count();
@@ -211,7 +211,7 @@ class FrontendController extends Controller
     }
     public function getDoanhnghiepKhuvuc($slug) {
         $enter_area = AreaModel::join('uec_enterprises', 'uec_enterprises.area_id', '=', 'uec_area.id')
-                    ->where('area_slug', $slug)->select('uec_enterprises.id', 'enterprise_name', 'uec_enterprises.created_at', 'uec_enterprises.updated_at', 'area_name', 'enterprise_address', 'enterprise_describe')->paginate(5);
+                    ->where('area_slug', $slug)->select('uec_enterprises.id', 'enterprise_name', 'enterprise_full_name', 'uec_enterprises.created_at', 'uec_enterprises.updated_at', 'area_name', 'enterprise_address', 'enterprise_describe')->paginate(5);
         $ena = AreaModel::where('area_slug', $slug)->first();
         $count = $enter_area->count();
          $area= AreaModel::all();
@@ -221,7 +221,8 @@ class FrontendController extends Controller
     public function getDoanhnghiepChitiet($id) {
         $enterp = EnterprisesModel::find($id);
         $area= AreaModel::all();
-    	return view('frontend.pub.pub_doanhnghiep_chitiet', compact('enterp', 'area'));
+        $area_e = $enterp->Area;
+    	return view('frontend.pub.pub_doanhnghiep_chitiet', compact('enterp', 'area', 'area_e'));
     }
 
 }

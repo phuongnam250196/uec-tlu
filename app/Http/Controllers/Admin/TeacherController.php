@@ -24,7 +24,7 @@ class TeacherController extends Controller
     // Danh sách giáo viên
     public function getListThongtin() {
         $teach = TeacherModel::join('uec_science', 'uec_science.id', '=', 'uec_teacher.science_id')
-        ->select('uec_teacher.id', 'teacher_name', 'science_name', 'teacher_email', 'teacher_phone', 'teacher_img')->get();
+        ->select('uec_teacher.id', 'teacher_name', 'science_name', 'teacher_email', 'teacher_phone', 'teacher_img')->paginate(5);
         return view('backend.giaovien.adm_giaovien_list', compact('teach'));
     }
 	// Thông tin giáo viên

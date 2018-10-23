@@ -25,7 +25,7 @@ class EditNewsRequest extends FormRequest
     {
         return [
             'tt_title'=>'unique:uec_news,news_name,'.$this->segment(5).',id',
-            'tt_img'=>'required | mimes:jpeg,jpg,png|max:2000',
+            'tt_img'=>'mimes:jpeg,jpg,png|max:2000',
             'tt_content' => 'required'
         ];
     }
@@ -33,7 +33,6 @@ class EditNewsRequest extends FormRequest
         return [
             'tt_title.unique'=>'Tin tức này đã tồn tại',
             'tt_title.required'=>'Tin tức không được để trống',
-            'tt_img.required'=>'Ảnh minh họa không được để trống',
             'tt_img.mines' => 'Ảnh không đúng định dạng, chọn lại',
             'tt_img.max' => 'Kích thước ảnh quá lớn',
             'tt_content.required' => 'Nội dung tin không được để trống'

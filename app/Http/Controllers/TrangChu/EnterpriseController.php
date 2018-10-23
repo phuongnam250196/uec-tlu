@@ -39,10 +39,21 @@ class EnterpriseController extends Controller
         $en_id = EnterprisesModel::join('uec_user', 'uec_user.enterprise_id', '=', 'uec_enterprises.id')
                         ->where('uec_user.id', Auth::id())->first();
         $tin = RecruitmentModel::where('uec_recruitment.enterprise_id', $en_id->enterprise_id)->paginate(3);
+        $tin_count = RecruitmentModel::where('uec_recruitment.enterprise_id', $en_id->enterprise_id)->count();
         $jr = Jobapp_RecruitmentModel::join('uec_jobapplication', 'uec_jobapplication.id', '=', 'uec_jobapp_recruitment.jobapplication_id')
             ->join('uec_student', 'uec_student.id', '=', 'uec_jobapp_recruitment.student_id')->get();
         // dd($tin, $en_id);
-    	return view('frontend.doanhnghiep.pr_doanhnghiep', compact('enterprise', 'tin', 'jr'));
+    	return view('frontend.doanhnghiep.pr_doanhnghiep', compact('enterprise', 'tin', 'jr', 'tin_count'));
+    }
+    public function getDoanhnghiepSearch(Request $request) {
+        $en_id = EnterprisesModel::join('uec_user', 'uec_user.enterprise_id', '=', 'uec_enterprises.id')
+                        ->where('uec_user.id', Auth::id())->first();
+        $tin = RecruitmentModel::where('uec_recruitment.enterprise_id', $en_id->enterprise_id)->where('recruitment_name', 'like', '%'.$request->recruitment_name.'%')->paginate(5);
+        $tin_count = RecruitmentModel::where('uec_recruitment.enterprise_id', $en_id->enterprise_id)->where('recruitment_name', 'like', '%'.$request->recruitment_name.'%')->count();
+        $jr = Jobapp_RecruitmentModel::join('uec_jobapplication', 'uec_jobapplication.id', '=', 'uec_jobapp_recruitment.jobapplication_id')
+            ->join('uec_student', 'uec_student.id', '=', 'uec_jobapp_recruitment.student_id')->get();
+        // dd($tin, $en_id);
+        return view('frontend.doanhnghiep.pr_doanhnghiep_search', compact('enterprise', 'tin', 'jr', 'tin_count'));
     }
 
     public function getDNInfo($id) {
@@ -119,8 +130,9 @@ class EnterpriseController extends Controller
         $en_id = EnterprisesModel::join('uec_user', 'uec_user.enterprise_id', '=', 'uec_enterprises.id')
                         ->where('uec_user.id', Auth::id())->first();
         $training = TrainModel::where('enterprise_id', $en_id->enterprise_id)->paginate(5);
+        $skill = SkillModel::all();
         // dd($training, $en_id->enterprise_id);
-    	return view('frontend.doanhnghiep.pr_doanhnghiep_khoadaotao', compact('enterprise', 'training'));
+    	return view('frontend.doanhnghiep.pr_doanhnghiep_khoadaotao', compact('enterprise', 'training', 'skill'));
     }
 
     public function getAddKdt() {
@@ -393,8 +405,30 @@ class EnterpriseController extends Controller
         return Response()->json($ut);
     }
 
-    public function getReport() {
-    	$data['enterprise'] = EnterprisesModel::all();
-    	return view('frontend.doanhnghiep.pr_doanhnghiep_thongke', $data);
+    public function getReport(Request $request) {
+        $en_id = EnterprisesModel::join('uec_user', 'uec_user.enterprise_id', '=', 'uec_enterprises.id')
+                        ->where('uec_user.id', Auth::id())->select('uec_enterprises.id')->first();
+    	$enterprise = EnterprisesModel::all();
+        $area = AreaModel::all();
+        $jobs = $en_id->Recruitment;
+        if(!empty($request->recruitment_id)) {
+            $c = Jobapp_RecruitmentModel::where('recruitment_id', $request->recruitment_id)->first();
+            dd($c->Student);
+            $arr = [];
+            foreach($c as $job) {
+                $arr[] = [
+                    'student_id'=>$job->student_id
+                ];
+            }
+            dd($arr);
+        }
+        
+        // dd($jobs, $en_id);
+        $students = StudentModel::where('area_id', $request->area_id)->orderBy('id', $request->order_by)->get();
+        // $students = StudentModel::where('id', function($b) {
+        //     $b->Jobapp_RecruitmentModel::where('status', 'work');
+        // })->get();
+        // dd($students);
+    	return view('frontend.doanhnghiep.pr_doanhnghiep_thongke', compact('area', 'students', 'jobs'));
     }
 }
