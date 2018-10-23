@@ -74,15 +74,15 @@
                                 <div class="row kdt_row_3">
                                     <div class="col-md-12 kdt_row_col">
                                         <h4>Mô tả công việc</h4>
-                                        <p>{{$tin->recruitment_describe}}</p>
+                                        <p>{!! $tin->recruitment_describe !!}</p>
                                     </div>
                                     <div class="col-md-12 kdt_row_col">
                                         <h4>quyền lợi</h4>
-                                        <p>{{$tin->recruitment_benefit}}</p>
+                                        <p>{!!$tin->recruitment_benefit!!}</p>
                                     </div>
                                     <div class="col-md-12 kdt_row_col">
                                         <h4>Yêu cầu</h4>
-                                        <p>{{$tin->recruitment_requirements}}</p>
+                                        <p>{!!$tin->recruitment_requirements!!}</p>
                                     </div>
                                     @if(!empty($cv))
                                     <div class="col-md-12 kdt_row_4">

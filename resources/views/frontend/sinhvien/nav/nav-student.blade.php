@@ -16,7 +16,7 @@
         
         <div class="card">
             <div class="card-header">
-                <a class="card-link" href="{{url('student/cv')}}">Hồ sơ ứng tuyển</a>
+                <a class="card-link" href="{{url('student/cv')}}">Tạo CV</a>
             </div>
         </div>
         <div class="card">

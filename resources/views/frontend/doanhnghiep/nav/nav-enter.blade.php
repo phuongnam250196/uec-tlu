@@ -12,7 +12,7 @@
             <div class="card-header">
                 <a class="card-link" href="{{url('enterprise/list_ttd')}}">Quản lý tin tuyển dụng</a> <a class="float-right" data-toggle="collapse" href="#collapseOne"><i class="ml-auto mt-2 fas fa-angle-down"></i></a>
             </div>
-            <div id="collapseOne" class="collapse show">
+            <div id="collapseOne" class="collapse">
                 <ul>
                     <li><a href="{{url('enterprise/add_ttd')}}">Tạo tin tuyển dụng</a></li>
                 </ul>
@@ -30,14 +30,7 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <a class="collapsed card-link" href="{{url('enterprise/cv')}}">Hồ sơ đã ứng tuyển</a> <a class="float-right" data-toggle="collapse" href="#collapseTwo"><i class="ml-auto mt-2 fas fa-angle-down"></i></a>
-            </div>
-            <div id="collapseTwo" class="collapse">
-                <ul>
-                    <li><a href="#">phuongnam251096@gmail.com</a> <span class="badge  badge-danger">New</span></li>
-                    <li><a href="#">ntv2403@gmail.com</a> <span class="badge  badge-danger">New</span></li>
-                    <li><a href="#">bachlaoto@gmail.com</a></li>
-                </ul>
+                <a class="collapsed card-link" href="{{url('enterprise/cv')}}">Hồ sơ đã ứng tuyển</a>
             </div>
         </div>
         <div class="card">
@@ -56,7 +49,7 @@
         @foreach(tin_new() as $new)
         <li>
             <div class="media">
-              <a href="{{url('/enterprise/detail_ttd/'.$new->id)}}"><img src="{{asset('../storage/app/tintuyendung/'.$new->recruitment_img)}}"></a>
+              <a href="{{url('/enterprise/detail_ttd/'.$new->id)}}"><img src="{{asset('local/storage/app/tintuyendung/'.$new->recruitment_img)}}"></a>
               <div class="media-body">
                 <h4><a href="{{url('/enterprise/detail_ttd/'.$new->id)}}">{{$new->recruitment_name}}</a></h4>
                 <div class="media-body-nhatruong">

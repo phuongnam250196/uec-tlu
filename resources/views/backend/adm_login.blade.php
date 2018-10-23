@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base href="{{asset('Layout/Backend')}}/">
+    <base href="{{asset('public/Layout/Backend')}}/">
     <meta charset="UTF-8">
     <title>AdminUEC | Trang đăng nhập</title>
     <!-- Tell the browser to be responsive to screen width -->

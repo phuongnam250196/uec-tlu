@@ -14,8 +14,8 @@
         </div>
         <div id="collapseOne" class="collapse show">
             <ul>
-                <li><a href="{{url('school/update_work')}}">Update việc làm SV</a></li>
-                <li><a href="{{url('school/reset_password')}}">Reset password</a></li>
+                <li><a href="{{url('school/update_work')}}">Cập nhật việc làm</a></li>
+                <li><a href="{{url('school/reset_password')}}">Reset Mật khẩu</a></li>
             </ul>
         </div>
     </div>

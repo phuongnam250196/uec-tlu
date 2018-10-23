@@ -48,7 +48,7 @@
 	                    @endforeach
 	                </table>
 	                <div class="text-right">
-	                    {{$post->links()}}
+	                    {{$post->links('vendor.pagination.bootstrap-4')}}
 	                </div>
 	            </div>
 	        </section>

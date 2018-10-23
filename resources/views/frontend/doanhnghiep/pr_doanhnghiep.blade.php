@@ -13,45 +13,26 @@
             </div>
             <div class="col-md-8 baiviet">
                 <div class="dieuhuong-doc-search">
-                    <div class="row dieuhuong-doc-search-2">
-                        <div class="col-md-4 dieuhuong-doc-search-2-col dieuhuong-doc-search-2-text">
-                            <i class="fas fa-search"></i>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
+                    <form action="{{url('enterprise/search/')}}" method="GET">
+                        <div class="row dieuhuong-doc-search-2">
+                            <div class="col-md-9 dieuhuong-doc-search-2-col dieuhuong-doc-search-2-text">
+                                <i class="fas fa-search"></i>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="recruitment_name" placeholder="Nhập từ khóa tìm kiếm">
+                                </div>
+                            </div>
+                            <div class="col-md-3 dieuhuong-doc-search-2-col">
+                                <div class="form-group">
+                                    <input type="submit" class="form-control" value="Tìm kiếm">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-3 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option>Chọn ngành nghề</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <select class="form-control" id="sel1">
-                                    <option>Tỉnh/Thành phố</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-2 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <input type="submit" class="form-control" value="Tìm kiếm">
-                            </div>
-                        </div>
-                    </div>
+                        {{csrf_field()}}
+                    </form>
+                    
                     <div class="row dieuhuong-doc-search-info">
                         <div class="col-6 text-left">
-                            <p>Tổng số hồ sơ <span class="text-success">980</span> bộ</p>
-                        </div>
-                        <div class="col-6 text-right">
-                            <p><a href="#">Mới nhất</a> | <a href="#">Hạn nộp hồ sơ</a></p>
+                            <p>Tổng số hồ sơ <span class="text-success">{{$tin_count}}</span> bộ</p>
                         </div>
                     </div>
                 </div>
@@ -61,9 +42,9 @@
                         <div class="row student-content">
                             <div class="col-md-5 student-content-col enterprise-content-col">
                                 <div class="card">
-                                    <img src="{{asset('../storage/app/tintuyendung/'.$ti->recruitment_img)}}" style="width:100%" alt="">
+                                    <img src="{{asset('local/storage/app/tintuyendung/'.$ti->recruitment_img)}}" style="width:100%" alt="">
                                     <div class="card-body">
-                                        <h4 class="card-title text-center"><a href="#">{{$ti->recruitment_name}}</a></h4>
+                                        <h4 class="card-title text-center"><a href="{{url('/enterprise/detail_ttd/'.$ti->id)}}">{{$ti->recruitment_name}}</a></h4>
                                         <div class="card-text">{!! $ti->recruitment_describe !!}</div>
                                     </div>
                                     <div class="text-center card-chitiet"><a href="{{url('/enterprise/detail_ttd/'.$ti->id)}}">Xem chi tiết <i class="fas fa-angle-double-right"></i></a></div>
@@ -84,8 +65,8 @@
                                            Sắp xếp
                                           </button>
                                           <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Tin mới nhất</a>
-                                            <a class="dropdown-item" href="#">Tin nộp trước</a>
+                                            <a class="dropdown-item" href="{{url('/enterprise')}}">Tin mới nhất</a>
+                                            <a class="dropdown-item" href="{{url('/enterprise')}}">Tin nộp trước</a>
                                           </div>
                                         </div>
                                       </div>
@@ -96,7 +77,7 @@
                                         @if($j->recruitment_id == $ti->id)
                                         <div class="media">
                                             @if(!empty($j->student_img))
-                                                <img src="images/viet.jpg" class="rounded-circle" style="width:60px; height: 60px;">
+                                                <img src="{{asset('local/storage/app/sinhvien/'.$j->student_img)}}" class="rounded-circle" style="width:60px; height: 60px;">
                                             @else
                                                 <i class="fas fa-user-circle fa-4x" style="width:60px;"></i>    
                                             @endif

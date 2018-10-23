@@ -35,9 +35,9 @@
                                 <tr>
                                     <th class="text-center">ID</th>
                                     <th>Tên khóa đào tạo</th>
-                                    <th>Trạng thái</th>
-                                    <th>Hạn nộp</th>
-                                    <th colspan="2">Tùy chọn</th>
+                                    <th>Trình độ</th>
+                                    <th>Ngày tạo</th>
+                                    <th colspan="2" class="text-center">Tùy chọn</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,8 +45,14 @@
                                 <tr>
                                     <td class="text-center">{{$train->id}}</td>
                                     <td><a href="{{url('enterprise/detail_kdt/'.$train->id)}}">{{$train->training_name}}</a></td>
-                                    <td class="text-center">{{$train->training_status}}</td>
-                                    <td>{{$train->created_at}}</td>
+                                    <td>
+                                        @foreach($skill as $s)
+                                            @if($train->skill_id == $s->id) 
+                                                {{$s->skill_name}}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td>{{date_format($train->created_at, 'd-m-Y')}}</td>
                                     <td class="text-center"><a href="{{url('enterprise/edit_kdt/'.$train->id)}}"><i class="fas fa-edit"></i></a></td>
                                     <td class="text-center"><a href="{{url('enterprise/delete_kdt/'.$train->id)}}" onclick="return confirm('Bạn có chắc muốn xóa khóa đào tạo này không???')"><i class="fas fa-trash"></i></a></td>
                                 </tr>

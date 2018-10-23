@@ -114,7 +114,7 @@
                           </table>
                         </div>
                         <div class="box-footer clearfix text-right">
-                            {{ $nn->links() }}
+                            {{ $nn->links('vendor.pagination.bootstrap-4') }}
                         </div>
                          
                     </div>

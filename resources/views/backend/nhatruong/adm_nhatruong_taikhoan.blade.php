@@ -80,7 +80,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Logo trường</label><img src="{{asset('../storage/app/school/'.$school2->school_logo)}}" style="width: 100%">
+                                        <label>Logo trường</label><img src="{{asset('local/storage/app/school/'.$school2->school_logo)}}" style="width: 100%">
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                           </table>
                           </div>
                           <div class="box-footer clearfix text-right">
-                            {{ $user_school->links() }}
+                            {{ $user_school->links('vendor.pagination.bootstrap-4') }}
                         </div> 
                     </div>
                 </div>

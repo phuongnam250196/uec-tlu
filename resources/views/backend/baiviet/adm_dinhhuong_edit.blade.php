@@ -36,14 +36,19 @@
                               <div class="form-group">
                                   <label>Chọn ảnh</label>
                                   <input id="img" type="file" name="tt_img" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                  <img id="avatar" class="thumbnail" src="{{url('../storage/app/dinhhuong/'.$data->careerorientation_img)}}" width="100%">
+                                  <img id="avatar" class="thumbnail" src="{{url('local/storage/app/dinhhuong/'.$data->careerorientation_img)}}" width="100%">
+                                  @if($errors->has('tt_img'))
+                                      <p class="help text-danger">{{ $errors->first('tt_img') }}</p>
+                                    @endif
                               </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
                                     <input required type="text" class="form-control" value="{{$data->careerorientation_name}}" name="tt_title">
-                                   
+                                   @if($errors->has('tt_title'))
+                                      <p class="help text-danger">{{ $errors->first('tt_title') }}</p>
+                                    @endif
                                 </div>
                             </div>
                             
@@ -52,6 +57,9 @@
                                   <label for="comment">Nội dung</label>
                                   <textarea id="tt_content" class="ckeditor" name="tt_content" rows="10" style="width: 100%">{{$data->careerorientation_content}}
                                   </textarea>
+                                  @if($errors->has('tt_content'))
+                                      <p class="help text-danger">{{ $errors->first('tt_content') }}</p>
+                                    @endif
                                    <script type="text/javascript">
                                     var editor = CKEDITOR.replace('tt_content',{
                                       language:'vi',

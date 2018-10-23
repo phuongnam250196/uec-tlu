@@ -50,7 +50,7 @@
                         @endforeach
                     </table>
                     <div class="text-right">
-                        {{$b->links()}}
+                        {{$b->links('vendor.pagination.bootstrap-4')}}
                     </div>
                 </div>
 

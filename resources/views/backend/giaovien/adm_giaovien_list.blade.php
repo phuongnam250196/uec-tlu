@@ -54,7 +54,7 @@
                                 @foreach($teach as $a)
                                   <tr>
                                     <td class="text-center">{{$a->id}}</td>
-                                    <td><img src="{{asset('../storage/app/giaovien/'.$a->teacher_img)}}" width="100"></td>
+                                    <td><img src="{{asset('local/storage/app/giaovien/'.$a->teacher_img)}}" width="100"></td>
                                     <td>{{$a->teacher_name}}</td>
                                     <td>{{$a->teacher_phone}}</td>
                                     <td>{{$a->teacher_email}}</td>
@@ -69,7 +69,7 @@
                           </table>
                       </div>
                           <div class="box-footer clearfix text-right">
-                            {{-- {{ $enter->links() }} --}}
+                            {{ $teach->links('vendor.pagination.bootstrap-4') }}
                         </div>
                     </div>
                     <!-- /.box-body -->

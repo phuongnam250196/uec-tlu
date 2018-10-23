@@ -32,7 +32,7 @@
                                 <div class="form-group" >
                                     <label>Ảnh khóa đào tạo</label>
                                     <input id="img" type="file" name="training_img" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                    <img id="avatar" class="thumbnail" src="{{url('../storage/app/khoadaotao/'.$train->training_img)}}" width="100%">
+                                    <img id="avatar" class="thumbnail" src="{{url('local/storage/app/khoadaotao/'.$train->training_img)}}" width="100%">
                                     @if($errors->has('training_img'))
                                       <p class="help text-danger">{{ $errors->first('training_img') }}</p>
                                     @endif
@@ -49,14 +49,14 @@
                                 
                                 <div class="form-group">
                                     <label>Số lượng học viên</label>
-                                    <input type="text" class="form-control" name="training_amount_student" value="{{$train->training_amount_student}}">
+                                    <input type="number" class="form-control" name="training_amount_student" value="{{$train->training_amount_student}}">
                                     @if($errors->has('training_amount_student'))
                                       <p class="help text-danger">{{ $errors->first('training_amount_student') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Thời gian khóa học</label>
-                                    <input type="text" class="form-control" name="training_timeserving" value="{{$train->training_timeserving}}" placeholder="VD: 3 (tháng)">
+                                    <input type="number" class="form-control" name="training_timeserving" value="{{$train->training_timeserving}}" placeholder="VD: 3 (tháng)">
                                     @if($errors->has('training_timeserving'))
                                       <p class="help text-danger">{{ $errors->first('training_timeserving') }}</p>
                                     @endif

@@ -48,18 +48,18 @@
                                 <div class="pub_dn-col-content">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img style="width: 100%" src="{{url('../storage/app/public/'.$enterp->enterprise_logo)}}" alt="">
+                                            <img style="width: 100%" src="{{url('local/storage/app/public/'.$enterp->enterprise_logo)}}" alt="">
                                         </div>
                                         <div class="col-md-9">
                                             <div class="">
-                                                <p>Tỉnh/Thành phố: {{$enterp->area_id}}</p> 
-                                                <p>Số lượng thành viên: {{$enterp->enterprise_size}}</p> 
+                                                <p>Tỉnh/Thành phố: {{$area_e->area_name}}</p> 
+                                                <p>Số lượng thành viên: {{$enterp->enterprise_size}} người</p> 
                                                 <p>Email: {{$enterp->enterprise_email}}</p> 
                                                 <p>Địa chỉ: {{$enterp->enterprise_address}}</p> 
                                                 <p>Số điện thoại: {{$enterp->enterprise_phone}}</p>
                                                 <p>website: {{$enterp->enterprise_web}}</p>
                                                 <p>Fanpage: {{$enterp->enterprise_fanpage}}</p>
-                                                <p>Miêu tả: {{$enterp->enterprise_describe}}</p>
+                                                <p>Miêu tả: {!! $enterp->enterprise_describe !!}</p>
                                             </div>
                                             
                                         </div>

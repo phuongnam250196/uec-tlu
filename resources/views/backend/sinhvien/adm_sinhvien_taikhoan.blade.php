@@ -46,7 +46,7 @@
                       </table>
                     </div>
                     <div class="box-footer clearfix text-right">
-                        {{ $m->links() }}
+                        {{ $m->links('vendor.pagination.bootstrap-4') }}
                     </div>      
                 </div>
                 <!-- End tạo 1 tài khoản -->

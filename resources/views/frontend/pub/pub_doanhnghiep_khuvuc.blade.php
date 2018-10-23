@@ -51,7 +51,7 @@
                                 @foreach($enter_area as $enter)
                                 <div class="pub_dn-col-content">
                                     <div class="company-name">
-                                        <h3 class="text-uppercase"><a href="{{url('/doanhnghiep/chitiet/'.$enter->id)}}">{{$enter->enterprise_name}}</a></h3>
+                                        <h3 class="text-uppercase"><a href="{{url('/doanhnghiep/chitiet/'.$enter->id)}}">{{$enter->enterprise_full_name}}</a></h3>
                                         <hr>
                                     </div>
                                     <div class="row company-row">
@@ -64,8 +64,8 @@
                                     </div>
                                     <div class="company-ab">
                                         <p>Địa chỉ: <strong>{{$enter->enterprise_address}}</strong></p>
-                                        <p>Cập nhật: Tuần trước ({{$enter->updated_at}})</p>
-                                        <p><i>Ngành nghề chính: <strong>{{$enter->enterprise_describe}}</strong></i></p>
+                                        <p>Cập nhật: ({{$enter->updated_at}})</p>
+                                        <p><i>Mô tả công ty: <strong>{!! strip_tags($enter->enterprise_describe) !!}</strong></i></p>
                                     </div>
                                 </div>
                                 @endforeach

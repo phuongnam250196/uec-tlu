@@ -86,7 +86,7 @@
                   </table>
                 </div><!-- /.box-body -->
                 <div class="box-footer clearfix">
-                  {{$std->links()}}
+                  {{$std->links('vendor.pagination.bootstrap-4')}}
                 </div>
               </div><!-- /.box -->
             </div>

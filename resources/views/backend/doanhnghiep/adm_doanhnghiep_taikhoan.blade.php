@@ -149,7 +149,7 @@
                           </table>
                           </div>
                           <div class="box-footer clearfix text-right">
-                            {{ $list_user->links() }}
+                            {{ $list_user->links('vendor.pagination.bootstrap-4') }}
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                     url: '/admin/doanhnghiep/taikhoan/get-avatar/'+id,
                     type: 'get',
                     success:function(data){
-                        $('#image-avatar').attr('src','{{asset('../storage/app/public/')}}/' +data+'?'+new Date())
+                        $('#image-avatar').attr('src','{{asset('local/storage/app/public/')}}/' +data+'?'+new Date())
                         console.log(data)
                     },
                     errors: function (err) {

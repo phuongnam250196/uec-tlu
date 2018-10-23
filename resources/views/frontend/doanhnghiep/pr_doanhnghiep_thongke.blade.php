@@ -25,52 +25,51 @@
                     </div>
                 </div>
                 <div class="dieuhuong-doc-search">
-                    <div class="row dieuhuong-doc-search-2">
-                        <div class="col-md-2 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <select class="form-control" id="sel1">
-                                    <option>Sắp xếp</option>
-                                    <option>Tăng</option>
-                                    <option>Giảm</option>
-                                </select>
+                    <form action="{{url('/enterprise/report')}}" method="GET">
+                        <div class="row dieuhuong-doc-search-2">
+                            <div class="col-md-2 dieuhuong-doc-search-2-col">
+                                <div class="form-group">
+                                    <select class="form-control" name="order_by">
+                                        <option value="asc">Tăng</option>
+                                        <option value="desc">Giảm</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-2 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Số lượng">
+                           
+                            <div class="col-md-5 dieuhuong-doc-search-2-col">
+                                <div class="form-group">
+                                    <select class="form-control" name="recruitment_id">
+                                        <option value="">Tên việc</option>
+                                        @foreach($jobs as $job)
+                                            <option value="{{$job->id}}">{{$job->recruitment_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option>Chuyên ngành</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
+                            <div class="col-md-3 dieuhuong-doc-search-2-col">
+                                <div class="form-group">
+                                    <select class="form-control" name="area_id">
+                                        <option>Tỉnh/Thành phố</option>
+                                        @foreach($area as $are)
+                                            <option value="{{$are->id}}">{{$are->area_name}}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <select class="form-control" id="sel1">
-                                    <option>Tỉnh/Thành phố</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
+                            <div class="col-md-1 dieuhuong-doc-search-2-col">
+                                <div class="form-group">
+                                    <input type="submit" class="form-control" value="Tìm">
+                                </div>
                             </div>
+                            {{-- <div class="col-md-1 dieuhuong-doc-search-2-col">
+                                <div class="form-group">
+                                    <input type="submit" class="form-control" value="Excel">
+                                </div>
+                            </div> --}}
                         </div>
-                        <div class="col-md-1 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <input type="submit" class="form-control" value="Tìm">
-                            </div>
-                        </div>
-                        <div class="col-md-1 dieuhuong-doc-search-2-col">
-                            <div class="form-group">
-                                <input type="submit" class="form-control" value="Excel">
-                            </div>
-                        </div>
-                    </div>
+                        {{csrf_field()}}
+                    </form>
                 </div>
                 <div class="baiviet-post">
                     <div class="tt-thongked">
@@ -93,74 +92,32 @@
                                         <th>Tỉnh/thành phố</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody {{$dem=1}}>
+                                    @foreach($students as $student)
                                     <tr>
-                                        <td>1</td>
-                                        <td>A25288</td>
-                                        <td>Trần Phương Nam</td>
-                                        <td>25/01/1996</td>
-                                        <td>Toán tin</td>
-                                        <td>Khoa học máy tính</td>
-                                        <td>K27</td>
-                                        <td>TI27g1</td>
-                                        <td>01654524503</td>
-                                        <td>phuongnam250196@gmail.com</td>
-                                        <td>Mai Thúy Nga</td>
-                                        <td>168 Kim giang</td>
-                                        <td>Hà Nội</td>
+                                        <td>{{$dem++}}</td>
+                                        <td>{{$student->student_code}}</td>
+                                        <td>{{$student->student_name}}</td>
+                                        <td>{{$student->student_birthday}}</td>
+                                        <td>{{$student->science_id}}</td>
+                                        <td>{{$student->specialize_id}}</td>
+                                        <td>{{$student->course_id}}</td>
+                                        <td>{{$student->class_id}}</td>
+                                        <td>{{$student->student_phone}}</td>
+                                        <td>{{$student->student_email}}</td>
+                                        <td>{{$student->teacher_id}}</td>
+                                        <td>{{$student->student_address}}</td>
+                                        <td>{{$student->area_id}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>A24244</td>
-                                        <td>Trương Lông Phú</td>
-                                        <td>22/11/1996</td>
-                                        <td>Toán tin</td>
-                                        <td>Khoa học máy tính</td>
-                                        <td>K27</td>
-                                        <td>TI27e1</td>
-                                        <td>0938282783</td>
-                                        <td>bachlaoto@gmail.com</td>
-                                        <td>Mai Thúy Nga</td>
-                                        <td>168 Kim giang</td>
-                                        <td>Hà Nội</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>A25345</td>
-                                        <td>Nguyễn Thọ Việt</td>
-                                        <td>09/10/1996</td>
-                                        <td>Toán tin</td>
-                                        <td>Khoa học máy tính</td>
-                                        <td>K27</td>
-                                        <td>TI27g1</td>
-                                        <td>0978654832</td>
-                                        <td>viet240395@gmail.com</td>
-                                        <td>Mai Thúy Nga</td>
-                                        <td>11 Hà đông</td>
-                                        <td>Hà Nội</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>A25300</td>
-                                        <td>Nguyễn Mạnh Huy</td>
-                                        <td>18/02/1996</td>
-                                        <td>Ngoại ngữ</td>
-                                        <td>Ngôn ngữ Trung</td>
-                                        <td>K27</td>
-                                        <td>TI27g1</td>
-                                        <td>01656098214</td>
-                                        <td>manhhuy@gmail.com</td>
-                                        <td>Nguyễn Thị Minh</td>
-                                        <td>16 Đền Lừ</td>
-                                        <td>Hà Nội</td>
-                                    </tr>
+                                    @endforeach
+                                    
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
                 <br>
-                <div class="col-md-12 pr_dn_paginate">
+                {{-- <div class="col-md-12 pr_dn_paginate">
                     <div class="row">
                         <ul class="pagination">
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
@@ -170,7 +127,7 @@
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 </section>

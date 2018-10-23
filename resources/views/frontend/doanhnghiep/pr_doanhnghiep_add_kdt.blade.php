@@ -59,14 +59,14 @@
                                 
                                 <div class="form-group">
                                     <label>Số lượng học viên</label>
-                                    <input type="text" class="form-control" name="training_amount_student" value="{{old("training_amount_student")}}">
+                                    <input type="number" class="form-control" name="training_amount_student" value="{{old("training_amount_student")}}">
                                     @if($errors->has('training_amount_student'))
                                       <p class="help text-danger">{{ $errors->first('training_amount_student') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Thời gian khóa học</label>
-                                    <input type="text" class="form-control" name="training_timeserving" value="{{old('training_timeserving')}}" placeholder="VD: 3 (tháng)">
+                                    <input type="number" class="form-control" name="training_timeserving" value="{{old('training_timeserving')}}" placeholder="VD: 3 (tháng)">
                                     @if($errors->has('training_timeserving'))
                                       <p class="help text-danger">{{ $errors->first('training_timeserving') }}</p>
                                     @endif

@@ -34,7 +34,7 @@
                                     <th>Việc đã nộp</th>
                                     <th>Kết quả</th>
                                     <th>Ngày nhận</th>
-                                    <th class="text-center">Tùy chọn</th>
+                                    <th class="text-center">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody {{$dem=1}}>
@@ -45,7 +45,7 @@
                                     <td>{{$kq->recruitment_name}}</td>
                                     <td>@if($kq->active_work == 1) <label class='text-success'>Trúng tuyển  </label> @elseif($kq->active_work==2) <label class="text-danger">Bị loại</label> @else <label class="text-info">Đang chờ</label> @endif</td>
                                     <td>{{date_format($kq->updated_at, 'd-m-Y')}}</td>
-                                    <td class="text-center"><a href="#"><i class="fas fa-trash"></i> Xóa </a></td>
+                                    <td class="text-center"><a href="#"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

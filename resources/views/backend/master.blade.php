@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <base href="{{asset('/Layout/Backend')}}/">
+    <base href="{{asset('public/Layout/Backend')}}/">
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>AdminUEC | @yield('title')</title>
@@ -32,7 +32,7 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="bootstrap/css/styleme.css">
-    <link rel="icon" type="image/ico" href="{{ asset('/upload/images/tlu.png') }}" sizes="140x140">
+    <link rel="icon" type="image/ico" href="{{ asset('public/upload/images/tlu.png') }}" sizes="140x140">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
@@ -182,7 +182,7 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                              <img src="{{asset('../storage/app/logo/nam.jpg')}}" class="user-image" />
+                              <img src="{{asset('local/storage/app/logo/nam.jpg')}}" class="user-image" />
                               <span class="hidden-xs">{{Auth::user()->user_name}}</span>
                             </a>
                             <ul class="dropdown-menu">
@@ -232,7 +232,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="{{asset('../storage/app/logo/nam.jpg')}}" class="img-circle" />
+                        <img src="{{asset('local/storage/app/logo/nam.jpg')}}" class="img-circle" />
                         <!-- <i class="fa fa-user img-circle fa-2x"></i> -->
                     </div>
                     <div class="pull-left info">
@@ -326,6 +326,10 @@
                             <li><a href="{{asset('admin/danhmuckhac/kinang')}}" @if(Request::is('admin/danhmuckhac/kinang/*') || Request::is('admin/danhmuckhac/kinang')) style="color:white" @endif><i class="fa fa-circle-o"></i> Quản lý kĩ năng</a></li>
                             <li><a href="{{asset('admin/danhmuckhac/khuvuc')}}" @if(Request::is('admin/danhmuckhac/khuvuc/*') || Request::is('admin/danhmuckhac/khuvuc')) style="color:white" @endif><i class="fa fa-circle-o"></i> Quản lý khu vực</a></li>
                             <li><a href="{{asset('admin/danhmuckhac/chucvu')}}" @if(Request::is('admin/danhmuckhac/chucvu/*') || Request::is('admin/danhmuckhac/chucvu')) style="color:white" @endif><i class="fa fa-circle-o"></i> Quản lý chức vụ</a></li>
+                            <li><a href="{{asset('admin/morong/khoahoc')}}" @if(Request::is('admin/morong/khoahoc/*') || Request::is('admin/morong/khoahoc')) style="color:white" @endif><i class="fa fa-circle-o"></i> Quản lý khoa học</a></li>
+                            <li><a href="{{asset('admin/morong/khoa')}}" @if(Request::is('admin/morong/khoa/*') || Request::is('admin/morong/khoa')) style="color:white" @endif><i class="fa fa-circle-o"></i> Quản lý khóa học</a></li>
+                            <li><a href="{{asset('admin/morong/chuyennganh')}}" @if(Request::is('admin/morong/chuyennganh/*') || Request::is('admin/morong/chuyennganh')) style="color:white" @endif><i class="fa fa-circle-o"></i> Quản lý chuyên ngành</a></li>
+                            <li><a href="{{asset('admin/morong/chuyennganh')}}" @if(Request::is('admin/morong/chuyennganh/*') || Request::is('admin/morong/chuyennganh')) style="color:white" @endif><i class="fa fa-circle-o"></i> Quản lý lớp học</a></li>
                         </ul>
                     </li>
                     <li class="treeview @if(Request::is('admin/thongke/*')) active @else  @endif">
@@ -340,22 +344,6 @@
                             <li><a href="#"><i class="fa fa-circle-o"></i> Theo nhà trường</a></li>
                         </ul>
                     </li>
-                    <li class="treeview @if(Request::is('admin/morong/*')) active @else  @endif">
-                        <a href="#">
-                            <i class="fa fa-line-chart"></i>
-                            <span>Mở rộng</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{asset('admin/morong/khoahoc')}}" @if(Request::is('admin/morong/khoahoc/*') || Request::is('admin/morong/khoahoc')) style="color:white" @endif><i class="fa fa-circle-o"></i> Khoa học</a></li>
-                            <li><a href="{{asset('admin/morong/khoa')}}" @if(Request::is('admin/morong/khoa/*') || Request::is('admin/morong/khoa')) style="color:white" @endif><i class="fa fa-circle-o"></i> Khóa học</a></li>
-                            <li><a href="{{asset('admin/morong/chuyennganh')}}" @if(Request::is('admin/morong/chuyennganh/*') || Request::is('admin/morong/chuyennganh')) style="color:white" @endif><i class="fa fa-circle-o"></i> Chuyên ngành</a></li>
-                        </ul>
-                    </li>
-                    <li class="header">LABELS</li>
-                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Nguy hiểm</span></a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Cảnh báo</span></a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Thông tin</span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->

@@ -31,15 +31,19 @@
 
                                     <h5>Các sự kiện đã qua:</h5>
                                     @foreach($dh_other as $dh)
-                                    <p><strong><a href="{{url('dinhhuongnghe/'.$dh->id)}}">{{$dh->careerorientation_name}}</a></strong>
-                                    {!! $dh->careerorientation_content !!}</p>
+                                    <p><strong><a href="{{url('dinhhuongnghe/'.$dh->id)}}">{{$dh->careerorientation_name}}</a></strong></p>
+                                    <div class="dinhhuong-content-lienquan-2">
+                                        {{-- {!! $dh->careerorientation_content !!} --}}
+                                        {!! strip_tags(preg_replace("/<img[^>]+\>/i", "(image) ", $dh->careerorientation_content)) !!}
+                                    </div>
+                                    <br>
                                     @endforeach
                                 </div>
                             </div>
                             <div class="col-md-4 thongtinsinhvien-img">
-                                <img src="{{asset('../storage/app/dinhhuong/'.$dh_first->careerorientation_img)}}">
+                                <img src="{{asset('local/storage/app/dinhhuong/'.$dh_first->careerorientation_img)}}">
                                 @foreach($dh_other as $dh)
-                                    <img src="{{asset('../storage/app/dinhhuong/'.$dh->careerorientation_img)}}">
+                                    <img src="{{asset('local/storage/app/dinhhuong/'.$dh->careerorientation_img)}}">
                                 @endforeach
                             </div>
                         </div>
