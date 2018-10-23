@@ -989,6 +989,20 @@ $nen: #373a3c;
                                 }
                             }
                         }
+                        .dinhhuong-content-lienquan {
+                            margin-bottom: 15px;
+                            p {
+                                margin-bottom: 0px;
+                            }
+                            .dinhhuong-content-lienquan-2 {
+                                text-align: justify;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                -webkit-line-clamp: 3;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                            }
+                        }
                     }
                     .thongtinsinhvien-img {
                         img {
@@ -1603,6 +1617,16 @@ $nen: #373a3c;
                             .company-ab {
                                 p {
                                     margin-bottom: 0;
+                                    i {
+                                        strong {
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            -webkit-line-clamp: 5;
+                                            display: -webkit-box;
+                                            -webkit-box-orient: vertical;
+                                            text-align: justify;
+                                        }
+                                    }
                                 }
                             }
                             &:last-child {

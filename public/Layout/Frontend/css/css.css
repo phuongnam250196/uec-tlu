@@ -618,6 +618,17 @@ body {
       padding-left: 15px; }
       #dieuhuong-doc .baiviet .thongtinsinhvien .thongtinsinhvien-main .thongtinsinhvien-row .thongtinsinhvien-content .thongtinsinhvien-content-lienquan ul li a {
         color: #333; }
+    #dieuhuong-doc .baiviet .thongtinsinhvien .thongtinsinhvien-main .thongtinsinhvien-row .thongtinsinhvien-content .dinhhuong-content-lienquan {
+      margin-bottom: 15px; }
+      #dieuhuong-doc .baiviet .thongtinsinhvien .thongtinsinhvien-main .thongtinsinhvien-row .thongtinsinhvien-content .dinhhuong-content-lienquan p {
+        margin-bottom: 0px; }
+      #dieuhuong-doc .baiviet .thongtinsinhvien .thongtinsinhvien-main .thongtinsinhvien-row .thongtinsinhvien-content .dinhhuong-content-lienquan .dinhhuong-content-lienquan-2 {
+        text-align: justify;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical; }
     #dieuhuong-doc .baiviet .thongtinsinhvien .thongtinsinhvien-main .thongtinsinhvien-row .thongtinsinhvien-img img {
       padding-bottom: 10px;
       width: 100%; }
@@ -1074,6 +1085,13 @@ body {
               margin-bottom: 5px; }
             #dieuhuong-doc .baiviet .pub_dn .pub_dn-row .pub_dn-col .pub_dn-col-ab .pub_dn-col-content .company-ab p {
               margin-bottom: 0; }
+              #dieuhuong-doc .baiviet .pub_dn .pub_dn-row .pub_dn-col .pub_dn-col-ab .pub_dn-col-content .company-ab p i strong {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 5;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                text-align: justify; }
             #dieuhuong-doc .baiviet .pub_dn .pub_dn-row .pub_dn-col .pub_dn-col-ab .pub_dn-col-content:last-child {
               border-bottom: none; }
   #dieuhuong-doc .baiviet .breadcrumb_title h1 {
