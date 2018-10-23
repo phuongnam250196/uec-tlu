@@ -12,7 +12,7 @@
             <div class="col-md-4 nav-doc order-2 order-md-1">
                 <nav class="nav-child">
                     <div class="nav-child-title text-center">
-                        <h3>Bài viết mới nhất</h3>
+                        <h3>Bài viết mới nhất 2</h3>
                     </div>
                     <ul>
                         @foreach(bai_viet_new() as $bv_new)
