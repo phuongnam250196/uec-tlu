@@ -16,4 +16,8 @@ class EnterprisesModel extends Model
     public function User() {
     	return $this->hasMany('App\Models\UserModel', 'enterprise_id');
     }
+
+    public function Recruitment() {
+    	return $this->hasMany('App\Models\RecruitmentModel', 'enterprise_id');
+    }
 }

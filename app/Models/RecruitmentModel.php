@@ -36,4 +36,8 @@ class RecruitmentModel extends Model
     public function Enterprise() {
     	return $this->belongsTo('App\Models\EnterprisesModel', 'enterprise_id');
     }
+
+    public function Jobapp_Recruitment() {
+        return $this->hasMany('App\Models\Jobapp_RecruitmentModel', 'recruitment_id');
+    }
 }
