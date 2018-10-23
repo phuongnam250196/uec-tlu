@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
-                                    {{-- <img id="avatar" class="thumbnail" src="{{url('local/storage/app/public/'.$enp->enterprise_logo)}}" width="100%"> --}}
+                                    {{-- <img id="avatar" class="thumbnail" src="{{url('../storage/app/public/'.$enp->enterprise_logo)}}" width="100%"> --}}
                                 </div>
                             </div>
                         </div>

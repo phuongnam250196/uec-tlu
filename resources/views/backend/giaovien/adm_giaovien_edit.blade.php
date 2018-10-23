@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <label>Ảnh đại diện</label>
                                         <input id="img" type="file" name="gv_img" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                        <img id="avatar" class="thumbnail" src="{{url('local/storage/app/giaovien/'.$teach->teacher_img)}}" width="100%">
+                                        <img id="avatar" class="thumbnail" src="{{url('../storage/app/giaovien/'.$teach->teacher_img)}}" width="100%">
                                         @if($errors->has('gv_img'))
                                           <p class="help text-danger">{{ $errors->first('gv_img') }}</p>
                                         @endif

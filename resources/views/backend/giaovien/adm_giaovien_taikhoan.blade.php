@@ -91,7 +91,7 @@
                                                     url: '/admin/giaovien/taikhoan/get-avatar/'+id,
                                                     type: 'get',
                                                     success:function(data){
-                                                        $('#image-avatar').attr('src','{{asset('local/storage/app/giaovien/')}}/' +data+'?'+new Date())
+                                                        $('#image-avatar').attr('src','{{asset('../storage/app/giaovien/')}}/' +data+'?'+new Date())
                                                         console.log(data)
                                                     },
                                                     errors: function (err) {

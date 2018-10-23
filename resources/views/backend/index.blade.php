@@ -114,7 +114,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body no-padding text-center">
-                        <img width="150" height="150" src="{{asset('local/storage/app/logo/tlu.png')}}" class="img-circle" style="margin-top: 50px; margin-bottom: 100px;">
+                        <img width="150" height="150" src="{{asset('../storage/app/logo/tlu.png')}}" class="img-circle" style="margin-top: 50px; margin-bottom: 100px;">
                     </div>
                 </div>
                 <!-- /.box -->
