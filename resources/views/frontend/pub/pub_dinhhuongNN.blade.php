@@ -41,9 +41,9 @@
                                 </div>
                             </div>
                             <div class="col-md-4 thongtinsinhvien-img">
-                                <img src="{{asset('local/storage/app/dinhhuong/'.$dh_first->careerorientation_img)}}">
+                                <img src="{{asset('../storage/app/dinhhuong/'.$dh_first->careerorientation_img)}}">
                                 @foreach($dh_other as $dh)
-                                    <img src="{{asset('local/storage/app/dinhhuong/'.$dh->careerorientation_img)}}">
+                                    <img src="{{asset('../storage/app/dinhhuong/'.$dh->careerorientation_img)}}">
                                 @endforeach
                             </div>
                         </div>

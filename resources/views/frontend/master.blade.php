@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="{{asset('public/Layout/Frontend')}}/">
+    <base href="{{asset('Layout/Frontend')}}/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{csrf_token()}}">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <link rel="icon" type="image/ico" href="{{ asset('public/upload/images/tlu.png') }}" sizes="140x140">
+    <link rel="icon" type="image/ico" href="{{ asset('upload/images/tlu.png') }}" sizes="140x140">
     {{-- <script type="text/javascript" src="engine1/jquery.js"></script> --}}
     {{-- <link rel="stylesheet" href="css/font-awesome.min.css"> --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
@@ -115,7 +115,7 @@
             <div class="owl-carousel owl-all">
                 @foreach(Enterprise() as $en)
               <div class="item">
-                <a href="{{url('doanhnghiep/chitiet/'.$en->id)}}" title="{{$en->enterprise_name}}"><img src="{{url('local/storage/app/public/'.$en->enterprise_logo)}}" ></a>
+                <a href="{{url('doanhnghiep/chitiet/'.$en->id)}}" title="{{$en->enterprise_name}}"><img src="{{url('../storage/app/public/'.$en->enterprise_logo)}}" ></a>
               </div>
               @endforeach
             </div>
